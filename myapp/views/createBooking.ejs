@@ -1,0 +1,34 @@
+<% include partials/header %> <!-- Include the header partial (e.g., navigation, title) -->
+
+<!-- Form to create a new booking, sends data to /bookings/create via POST method -->
+<form action="/bookings/create" method="POST">
+    <!-- Input field for the user's name -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required> <!-- 'required' ensures the field must be filled -->
+
+    <!-- Input field for Person ID, exactly 10 characters long -->
+    <label for="personId">Person ID (10 characters):</label>
+    <input type="text" id="personId" name="personId" pattern=".{10}" title="Ten characters required" required>
+    <!-- 'pattern' ensures the input is exactly 10 characters, 'title' provides a message if the pattern isn’t met -->
+
+    <!-- Input field for selecting date and time -->
+    <label for="dateTime">Date and Time:</label>
+    <input type="datetime-local" id="dateTime" name="dateTime" required> <!-- Allows user to select date and time -->
+
+    <!-- Input field for card number -->
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" id="cardNumber" name="cardNumber" required> <!-- 'required' enforces this field is filled -->
+
+    <!-- Input field for card expiry date -->
+    <label for="expiry">Expiry:</label>
+    <input type="text" id="expiry" name="expiry" required> <!-- Field for entering card expiry date -->
+
+    <!-- Input field for card security code -->
+    <label for="securityCode">Security Code:</label>
+    <input type="text" id="securityCode" name="securityCode" required> <!-- Field for entering card security code -->
+
+    <!-- Submit button to create the booking -->
+    <button type="submit">Create Booking</button>
+</form>
+
+<% include partials/footer %> <!-- Include the footer partial (e.g., copyright, contact info) -->

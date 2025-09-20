@@ -1,0 +1,35 @@
+<% include partials/header %> <!-- Include the common header from partials -->
+
+<!-- Display the report heading with the user's name -->
+<h2>Training Report for <%= name %></h2>
+
+<!-- Check if there are any training sessions available -->
+<% if (sessions.length > 0) { %>
+    <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th>#</th> <!-- Column for the session index -->
+                <th>Session Name</th> <!-- Column for the session name -->
+                <th>Date</th> <!-- Column for the session date -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through each session and display its details in a table row -->
+            <% sessions.forEach((session, index) => { %> 
+                <tr>
+                    <td><%= index + 1 %></td> <!-- Display the session index -->
+                    <td><%= session.name %></td> <!-- Display the session name -->
+                    <td><%= session.date ? session.date.toDateString() : 'N/A' %></td> <!-- Display the session date -->
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+<% } else { %> 
+    <!-- Display a message if no sessions are found for the given criteria -->
+    <p>No training sessions found for <%= name %> in the given date range.</p>
+<% } %>
+
+<!-- Optionally, you can add the start and end date info to display -->
+<p>Showing sessions from <%= startDate %> to <%= endDate %></p>
+
+<% include partials/footer %> <!-- Include the common footer from partials -->

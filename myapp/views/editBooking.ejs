@@ -1,0 +1,43 @@
+<% include partials/header %> <!-- Include the common header from partials -->
+
+<!-- Page heading for editing an existing booking -->
+<h2>Edit Booking</h2>
+
+<!-- Form to update the booking details -->
+<!-- The action URL includes the booking's unique ID for identifying which booking to update -->
+<form action="/bookings/<%= booking._id %>/edit" method="POST"> 
+  <!-- Input field for the user's name -->
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="<%= booking.name %>" required /> 
+  <!-- 'value' is pre-filled with the current booking's name, 'required' ensures the field is not empty -->
+
+  <!-- Input field for the person's unique ID -->
+  <label for="personId">Person ID</label>
+  <input type="text" id="personId" name="personId" value="<%= booking.personId %>" required /> 
+  <!-- 'value' pre-fills the current personId, 'required' enforces input -->
+
+  <!-- Input field for date and time of the booking -->
+  <label for="dateTime">Date and Time</label>
+  <input type="datetime-local" id="dateTime" name="dateTime" value="<%= booking.dateTime.toISOString().slice(0, 16) %>" required /> 
+  <!-- Convert the date to an ISO string and slice to format for 'datetime-local' input -->
+
+  <!-- Input field for the card number -->
+  <label for="cardNumber">Card Number</label>
+  <input type="text" id="cardNumber" name="cardNumber" value="<%= booking.cardNumber %>" required /> 
+  <!-- 'value' pre-fills the current card number, validation occurs server-side -->
+
+  <!-- Input field for the card's expiry date -->
+  <label for="expiry">Expiry</label>
+  <input type="text" id="expiry" name="expiry" value="<%= booking.expiry %>" required /> 
+  <!-- 'value' pre-fills the current expiry date, format assumed as MM/YY -->
+
+  <!-- Input field for the card's security code -->
+  <label for="securityCode">Security Code</label>
+  <input type="text" id="securityCode" name="securityCode" value="<%= booking.securityCode %>" required /> 
+  <!-- 'value' pre-fills the current security code, typically 3-4 digits -->
+
+  <!-- Button to submit the updated booking details -->
+  <button type="submit">Update Booking</button>
+</form>
+
+<% include partials/footer %> <!-- Include the common footer from partials -->

@@ -1,0 +1,24 @@
+<% include partials/header %> <!-- Include the common header from partials -->
+
+<!-- Page heading for generating the training report -->
+<h2>Generate Training Report</h2>
+
+<!-- Form to input details for generating the report -->
+<form action="/generateReport" method="POST"> 
+  <!-- Input for the user's name -->
+  <label for="name">Name</label>
+  <input type="text" name="name" required /> <!-- 'required' ensures this field cannot be left empty -->
+
+  <!-- Input for the start date of the report -->
+  <label for="startDate">Start Date</label>
+  <input type="date" name="startDate" required /> <!-- 'type="date"' allows date selection -->
+
+  <!-- Input for the end date of the report -->
+  <label for="endDate">End Date</label>
+  <input type="date" name="endDate" required /> <!-- 'required' ensures this field cannot be left empty -->
+
+  <!-- Button to submit the form and generate the report -->
+  <button type="submit">Generate Report</button>
+</form>
+
+<% include partials/footer %> <!-- Include the common footer from partials -->
